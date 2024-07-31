@@ -1,0 +1,34 @@
+.leaflet-control-layers-accordion {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.leaflet-control-layers-accordion .accordion {
+    cursor: pointer;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    margin-bottom: 5px;
+}
+
+.leaflet-control-layers-accordion .accordion:hover {
+    background-color: #ddd;
+}
+
+.leaflet-control-layers-accordion .panel {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: white;
+}
+
+.leaflet-control-layers-accordion .panel img {
+    width: 100%;
+    height: auto;
+}
+
+.leaflet-control-layers-accordion .panel p {
+    margin: 10px 0;
+}
