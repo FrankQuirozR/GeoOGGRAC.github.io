@@ -204,16 +204,52 @@ new L.basemapsSwitcher([{
    // expandAll: '<span style="font-size: 14px; font-weight: bold;color: red;">Expandir todo</span>',
    // collapsed: true,
    // spaceSymbol: '&nbsp;&nbsp;'}).addTo(map);
-L.Control.layers({}, {
-    'LAYER01': unidadlito,
-    'LAYER02': unidadgeo,
-    'LAYER03': fallas,
-    'SISMOS': proyectocampo,
-    'LAYER04': estaciones,
-    'LAYER05': dato_estructural,
-    'LAYER06': unidadgeomorfo,
-    'LAYER07': eventosmorfodinam
-}).addTo(map);
+
+
+// L.control.layers({}, {
+//     'LAYER01': unidadlito,
+//     'LAYER02': unidadgeo,
+//     'LAYER03': fallas,
+//     'SISMOS': proyectocampo,
+//     'LAYER04': estaciones,
+//     'LAYER05': dato_estructural,
+//     'LAYER06': unidadgeomorfo,
+//     'LAYER07': eventosmorfodinam
+// }).addTo(map);
+
+
+
+/**
+ * Test acordion
+ */
+
+
+
+
+// Función para inicializar el acordeón
+function initAccordion() {
+    console.log("hola")
+    // Crear la lista de capas y su información
+    var layers = [
+        { title: 'Título de la Capa 1', image: 'path/to/image1.jpg', info: 'Información sobre la Capa 1.' },
+        { title: 'Título de la Capa 2', image: 'path/to/image2.jpg', info: 'Información sobre la Capa 2.' }
+    ];
+
+    // Crear el control de capas con acordeón
+    L.control.layers.accordion({}, {}, {
+        layers: layers,
+        position: 'topright' // Ubicación del control en el mapa
+    }).addTo(map);
+}
+
+initAccordion();
+// Ejecutar la función para inicializar el acordeón cuando el mapa esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    initAccordion();
+    
+});
+
+
 
 //credits = L.controlCredits({
     //position: 'bottomleft',
@@ -261,6 +297,7 @@ L.Control.FileLayerLoad.LABEL = '&#x1F4C1;';
 document.addEventListener('DOMContentLoaded', function() {
     initMap();
 });
+
 
 
 

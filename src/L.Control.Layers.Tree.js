@@ -522,4 +522,44 @@
         return new L.Control.Layers.Tree(base, overlays, options);
     }
 
+    L.Control.Layers.Accordion = L.Control.Layers.extend({
+        initialize: function (baseLayers, overlays, options) {
+            L.Control.Layers.prototype.initialize.call(this, baseLayers, overlays, options);
+            this._accordionContainer = L.DomUtil.create('div', 'leaflet-control-layers-accordion');
+            this._createAccordion();
+        },
+    
+        _createAccordion: function () {
+            // Limpiar el contenedor antes de agregar contenido
+            this._accordionContainer.innerHTML = '';
+    
+            var layers = this.options.layers; // Suponiendo que `this.options.layers` es una lista de capas
+    
+            layers.forEach(layer => {
+                // Crear el encabezado del acordeón
+                var acc = L.DomUtil.create('div', 'accordion', this._accordionContainer);
+                acc.innerHTML = layer.title; // Título del acordeón
+    
+                // Crear el panel del acordeón
+                var panel = L.DomUtil.create('div', 'panel', this._accordionContainer);
+                var img = L.DomUtil.create('img', '', panel);
+                img.src = layer.image; // Imagen del acordeón
+                var p = L.DomUtil.create('p', '', panel);
+                p.innerHTML = layer.info; // Información del acordeón
+            });
+        },
+    
+        onAdd: function (map) {
+            var container = L.Control.Layers.prototype.onAdd.call(this, map);
+            container.appendChild(this._accordionContainer);
+            return container;
+        }
+    });
+
+    L.control.layers.accordion = function(base, overlays, options) {
+        return new L.Control.Layers.Accordion(base, overlays, options);
+    }
+
+
+
 })(L);

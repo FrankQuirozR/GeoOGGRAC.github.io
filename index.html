@@ -130,6 +130,7 @@
     <div id="map"></div>
 
 <!-- cargar script de leaflet -->
+
 <script src="src/util/Leaflet.PolylineMeasure.js"></script>
 <script type="text/javascript" src="src/util/Leaflet.Coordinates-0.1.5.min.js"></script>
 <script type="text/javascript" src="src/L.Control.Locate.js"></script>
@@ -147,6 +148,22 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="leaflet_scripts/santander.js"></script>
 
-
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var acc = document.getElementsByClassName("accordion");
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    });
+    
+</script>
 </body>
 </html>
